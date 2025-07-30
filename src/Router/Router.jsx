@@ -8,6 +8,7 @@ import MyTips from "../Components/MyTips";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ActiveGargenrs from "../Components/ActiveGargenrs";
 
 const router = createBrowserRouter([
   {
@@ -16,14 +17,17 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: () => fetch("http://localhost:3000/activeGargenrs"),
         Component: Home,
       },
       {
         path: "/exploreGardeners",
+        loader: () => fetch("http://localhost:3000/activeGargenrs?show=all"),
         Component: ExploreGardeners,
       },
       {
         path: "/browseTips",
+        loader: () => fetch("http://localhost:3000/ShareGardenTip"),
         Component: BrowseTips,
       },
       {
@@ -41,6 +45,10 @@ const router = createBrowserRouter([
             <MyTips></MyTips>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "activeGardenrs",
+        Component: ActiveGargenrs,
       },
       {
         path: "/login",
