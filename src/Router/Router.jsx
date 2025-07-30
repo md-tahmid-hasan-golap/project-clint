@@ -17,7 +17,17 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/activeGargenrs"),
+        loader: async () => {
+          const data = await fetch("http://localhost:3000/activeGargenrs");
+          const gardensData = await data.json();
+
+          const trendingData = await fetch(
+            "http://localhost:3000/ShareGardenTipHome"
+          );
+          const trendingTip = await trendingData.json();
+          return { gardensData, trendingTip };
+        },
+
         Component: Home,
       },
       {

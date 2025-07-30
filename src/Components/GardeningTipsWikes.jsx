@@ -2,7 +2,7 @@ import React from "react";
 
 const GardeningTipsWikes = () => {
   return (
-    <section className="bg-green-50 py-10 px-4 rounded-md">
+    <section className="bg-green-50 py-10 px-4 rounded-md mt-10">
       <h2 className="text-3xl font-bold text-green-700 text-center mb-10">
         🌱 Gardening Tips of the Week
       </h2>
